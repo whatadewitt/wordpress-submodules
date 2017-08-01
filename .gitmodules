@@ -4,9 +4,12 @@
 [submodule "wp-content/themes/understrap"]
 	path = wp-content/themes/understrap
 	url = git@github.com:holger1411/understrap.git
-[submodule "wp-content/themes/understrap-child"]
-	path = wp-content/themes/understrap-child
-	url = git@github.com:holger1411/understrap-child.git
 [submodule "wp-content/plugins/advanced-custom-fields"]
 	path = wp-content/plugins/advanced-custom-fields
 	url = git@github.com:elliotcondon/acf.git
+[submodule "wp-content/themes/my-child-theme"]
+	path = wp-content/themes/my-child-theme
+	url = git@github.com:whatadewitt/my-understrap-theme.git
+[submodule "wp-content/themes/poc-understrap-child"]
+	path = wp-content/themes/poc-understrap-child
+	url = git@github.com:whatadewitt/poc-understrap-child.git
