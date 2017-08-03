@@ -13,3 +13,6 @@
 [submodule "wp-content/themes/poc-understrap-child"]
 	path = wp-content/themes/poc-understrap-child
 	url = git@github.com:whatadewitt/poc-understrap-child.git
+[submodule "wp-content/plugins/dumb-plugin"]
+	path = wp-content/plugins/dumb-plugin
+	url = https://github.com/whatadewitt/dumb-plugin
