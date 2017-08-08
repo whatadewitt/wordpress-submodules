@@ -49,3 +49,12 @@ services:
    restart: always
    ports:
     - "8087:80"
+
+  # wpcli:
+  #   image: tatemz/wp-cli
+  #   volumes_from:
+  #     - wordpress
+  #   links:
+  #     - mysql:mysql
+    # entrypoint: wp
+    # command: "--info"
