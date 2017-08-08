@@ -16,3 +16,4 @@ sitemap.xml.gz
 .DS_Store
 uploads/
 db
+node_modules
