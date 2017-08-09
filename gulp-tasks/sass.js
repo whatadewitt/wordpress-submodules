@@ -3,10 +3,14 @@ import gulp from "gulp";
 import sass from "gulp-sass";
 import autoprefixer from "gulp-autoprefixer";
 import gutil from "gulp-util";
+import rename from "gulp-rename";
+import sourcemaps from "gulp-sourcemaps";
+import debug from "gulp-debug";
 
-gulp.task("sass", () => {
+gulp.task("sass", ["theme"], () => {
   const stream = gulp
-    .src(`${global.theme_directory}/sass/*.scss`)
+    .src(`${global.theme_directory}/sass/child-theme.scss`)
+    .pipe(debug())
     .pipe(
       sass({
         outputStyle: "expanded",
@@ -19,13 +23,10 @@ gulp.task("sass", () => {
         flexbox: true
       }).on("error", sass.logError)
     )
-    .pipe(
-      !config.prod // todo: we should be using some sort of environment variable here rather than config
-        ? sourcemaps.write(undefined, { sourceRoot: null })
-        : gutil.noop()
-    )
+    .pipe(!global.config.prod ? sourcemaps.write(".") : gutil.noop())
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("./css"));
+    .pipe(gulp.dest(`${global.theme_directory}/css`))
+    .pipe(global.browserSync ? global.browserSync.stream() : gutil.noop());
 
   return stream;
 });

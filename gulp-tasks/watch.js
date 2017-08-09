@@ -1,10 +1,16 @@
 import gulp from "gulp";
 import watch from "gulp-watch";
 
-gulp.task("watch", ["sass"], () => {
-  // if (!globalconfig.prod) { // assumption will be that this will be run via npm script such as
+gulp.task("watch", ["theme", "sass", "scripts"], () => {
   // `npm run develop`
-  gulp.watch(["./sass/**/*.scss"], ["sass"]);
-  // gulp.watch([basePaths.dev + 'js/**/*.js','js/**/*.js','!js/theme.js','!js/theme.min.js'], ['scripts'])
-  // }
+  gulp.watch([`${global.theme_directory}/sass/**/*.scss`], ["sass"]);
+  gulp.watch(`${global.theme_directory}/src/js/**/*.js`, ["scripts"]);
+  gulp.watch(
+    [
+      `${global.theme_directory}/js/**/*.js`,
+      `${global.theme_directory}/src/**/*.php`,
+      `${global.theme_directory}/src/**/*.twig`
+    ],
+    global.browserSync ? global.browserSync.reload : gutil.noop
+  );
 });
